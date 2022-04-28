@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=4,walltime=3:00:00,vmem=40gb
+#PBS -N app-commit
+#PBS -V
+
+set -e
+set -x
+
+time singularity exec -e docker://brainlife/mrtrix3:3.0.3 ./fod_to_peaks.sh
+
+# if white matter mask missing, generate
+
+time singularity exec -e docker://brainlife/amico:latest ./run_commit.py
