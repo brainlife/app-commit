@@ -11,7 +11,7 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_paths,dPa
         filename_tractogram = track_path,
         filename_peaks = peaks_path,
         filename_mask = wm_path,
-        fiber_shift = 0.5,
+        fiber_shift = 0.5, # this param could be optional
         peaks_use_affine = True
     )
 
@@ -23,7 +23,7 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_paths,dPa
     mit.load_data(dwi_path,'DWI.scheme')
 
     # set forward model
-    mit.set_model( model )
+    mit.set_model( model ) # StickZepplinBall
     d_par       = dPar           # Parallel diffusivity [mm^2/s] 1.7E-3
     d_perps_zep = dPerp        # Perpendicular diffusivity(s) [mm^2/s] [ 0.51E-3 ]
     d_isos      = dIso # Isotropic diffusivity(s) [mm^2/s] [ 1.7E-3, 3.0E-3 ]
