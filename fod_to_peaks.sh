@@ -8,8 +8,11 @@ lmax10=`jq -r '.lmax10' config.json`
 lmax12=`jq -r '.lmax12' config.json`
 lmax14=`jq -r '.lmax14' config.json`
 lmax=`jq -r '.lmax' config.json`
+mask=`jq -r '.mask' config.json`
 ncores=8
 
 fod=`eval "echo \$lmax${lmax}"`
 
 [ ! -f peaks.nii.gz ] && sh2peaks ${fod} ./peaks.nii.gz -force -nthreads ${ncores} -quiet
+
+[ ! -f wm.nii.gz ] && mrconvert -coord 3 2 ${mask} wm_prob.nii.gz -force -nthreads ${ncores} && fslmaths wm_prob.nii.gz -bin ./wm.nii.gz

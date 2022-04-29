@@ -10,9 +10,9 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_paths,dPa
     trk2dictionary.run(
         filename_tractogram = track_path,
         filename_peaks = peaks_path,
-        filename_mask = wm_path,
-        fiber_shift = 0.5, # this param could be optional
-        peaks_use_affine = True
+        filename_mask = wm_path
+        #fiber_shift = 0.5, # this param could be optional
+        #peaks_use_affine = True
     )
 
     # generate scheme file

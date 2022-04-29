@@ -6,3 +6,4 @@ tmpdata
 kernels
 DWI.*
 track.tck
+tmp/*
