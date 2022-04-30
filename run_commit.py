@@ -41,7 +41,7 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar
 
     # bulid linear operator
     mit.set_threads(8)
-    mit.build_operator()
+    mit.build_operator(build_dir='tmp')
 
     # fit the model
     mit.fit(tol_fun=1e-3,max_iter=1000)
@@ -58,6 +58,10 @@ def main():
     # make commit dir
     if not os.path.isdir('COMMIT'):
         os.mkdir('COMMIT')
+        
+    # make tmp dir for operator building
+    if not os.path.isdir('tmp'):
+        os.mkdir('tmp')
 
     # grab appropriate variables and paths
     track_path = config['track']
