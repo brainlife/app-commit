@@ -11,7 +11,7 @@ lmax=`jq -r '.lmax' config.json`
 mask=`jq -r '.mask' config.json`
 ncores=8
 
-fod=`eval "echo \$lmax${lmax}"`
+fod=$(eval "echo \$lmax${lmax}")
 
 [ ! -f peaks.nii.gz ] && sh2peaks ${fod} ./peaks.nii.gz -force -nthreads ${ncores} -quiet
 
