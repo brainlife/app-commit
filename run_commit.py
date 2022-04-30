@@ -12,7 +12,7 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_paths,dPa
         filename_peaks = peaks_path,
         filename_mask = wm_path
         #fiber_shift = 0.5, # this param could be optional
-        #peaks_use_affine = True
+        #peaks_use_a    ffine = True
     )
 
     # generate scheme file
@@ -25,8 +25,8 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_paths,dPa
     # set forward model
     mit.set_model( model ) # StickZepplinBall
     d_par       = dPar           # Parallel diffusivity [mm^2/s] 1.7E-3
-    d_perps_zep = dPerp        # Perpendicular diffusivity(s) [mm^2/s] [ 0.51E-3 ]
-    d_isos      = dIso # Isotropic diffusivity(s) [mm^2/s] [ 1.7E-3, 3.0E-3 ]
+    d_perps_zep = [dPerp]        # Perpendicular diffusivity(s) [mm^2/s] [ 0.51E-3 ]
+    d_isos      = [ float(f) for f in dIso.split(", ") ] # Isotropic diffusivity(s) [mm^2/s] [ 1.7E-3, 3.0E-3 ].had to code as string on bl input
     mit.model.set( d_par, d_perps_zep, d_isos )
     mit.generate_kernels( regenerate=True )
     mit.load_kernels()
