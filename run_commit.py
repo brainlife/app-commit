@@ -95,7 +95,7 @@ def main():
     min_fiber_len = config['min_fiber_len'] # default 0
     max_fiber_len = config['max_fiber_len'] # default 250
     vf_THR = config['vf_THR'] # default 0.1
-    flip_peaks = config['flip_peaks'] # default false
+    flip_peaks = list(config["flip_peaks"].split(' ')) # default false false false
     blur_spacing = config['blur_spacing'] # default 0.25
     blur_core_extent = config['blur_core_extent'] # default 0.0
     blur_gauss_extent = config['blur_gauss_extent'] # default 0
