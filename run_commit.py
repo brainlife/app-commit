@@ -17,7 +17,7 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar
         filename_mask = wm_path,
         path_out = './COMMIT'
         #fiber_shift = 0.5, # this param could be optional
-        #peaks_use_a    ffine = True
+        #peaks_use_affine = True
     )
 
     # generate scheme file
