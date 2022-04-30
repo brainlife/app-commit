@@ -64,7 +64,7 @@ def main():
     model = config['model']
 
     # run commit
-    run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_paths,dPar,dPerp,dIso,model)
+    run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model)
     
 if __name__ == '__main__':
     main()
