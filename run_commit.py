@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 
+import os, sys
 import amico
 import commit
 from commit import trk2dictionary
 import json
+
+commit.setup()
 
 def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model):
 
