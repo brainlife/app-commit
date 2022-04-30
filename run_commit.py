@@ -8,16 +8,15 @@ import json
 
 commit.setup()
 
-def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model):
+def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model,fiber_shift,peaks_use_affine):
 
-    # create dictionary
     trk2dictionary.run(
         filename_tractogram = track_path,
         filename_peaks = peaks_path,
         filename_mask = wm_path,
-        path_out = './COMMIT'
-        #fiber_shift = 0.5, # this param could be optional
-        #peaks_use_affine = True
+        path_out = './COMMIT',
+        fiber_shift = fiber_shift,
+        peaks_use_affine = peaks_use_affine
     )
 
     # generate scheme file
@@ -74,9 +73,11 @@ def main():
     dPerp = config['dPerp']
     dIso = config['dIso']
     model = config['model']
+    fiber_shift = config['fiber_shift']
+    peaks_use_affine = config['peaks_use_affine']
 
     # run commit
-    run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model)
+    run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model,fiber_shift,peaks_use_affine)
     
 if __name__ == '__main__':
     main()
