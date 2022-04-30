@@ -8,6 +8,6 @@ set -x
 
 time singularity exec -e docker://brainlife/mrtrix3:3.0_RC3 ./fod_to_peaks.sh
 
-time singularity exec -e docker://brainlife/commit ./run_commit.py
+time singularity exec -e docker://brainlife/commit:1.6.1 ./run_commit.py
 
 time singularity exec -e docker://brainlife/mrtrix3:3.0.3 ./commit2bl.sh
