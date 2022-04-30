@@ -64,3 +64,6 @@ def main():
 
     # run commit
     run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_paths,dPar,dPerp,dIso,model)
+    
+if __name__ == '__main__':
+    main()
