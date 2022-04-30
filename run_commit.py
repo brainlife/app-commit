@@ -50,6 +50,10 @@ def main():
     # load config.json
     with open('config.json','r') as config_f:
         config = json.load(config_f)
+        
+    # make commit dir
+    if not os.path.isdir('COMMIT'):
+        os.mkdir('COMMIT')
 
     # grab appropriate variables and paths
     track_path = config['track']
