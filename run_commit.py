@@ -35,7 +35,7 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_paths,dPa
     mit.load_dictionary( 'COMMIT' )
 
     # bulid linear operator
-    mit.set_threads()
+    mit.set_threads(8)
     mit.build_operator()
 
     # fit the model
