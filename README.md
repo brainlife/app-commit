@@ -1,5 +1,5 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-brainlife.app.619-blue.svg)](https://doi.org/10.25663/brainlife.app.619)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-brainlife.app.622-blue.svg)](https://doi.org/10.25663/brainlife.app.622)
 
 # Compute streamline weights using COMMIT
 
@@ -37,7 +37,7 @@ We kindly ask that you cite the following articles when publishing papers and co
 
 ### On Brainlife.io
 
-You can submit this App online at [https://doi.org/10.25663/brainlife.app.619](https://doi.org/10.25663/brainlife.app.619) via the 'Execute' tab.
+You can submit this App online at [https://doi.org/10.25663/brainlife.app.622](https://doi.org/10.25663/brainlife.app.622) via the 'Execute' tab.
 
 ### Running Locally (on your machine)
 
@@ -59,11 +59,26 @@ You can submit this App online at [https://doi.org/10.25663/brainlife.app.619](h
     "lmax12":  "/input/csd/lmax12.nii.gz",
     "lmax14":  "/input/csd/lmax14.nii.gz",
     "mask": "/input/5tt/mask.nii.gz",
-    "lmax": 8,
     "dPar": 0.0017,
-    "dPerp":  0.00051,
+    "dPerp": 0.00051,
     "dIso": "0.0017, 0.003",
-    "model":  "StickZepplinBall"
+    "model": "StickZeppelinBall",
+    "lmax": 8,
+    "fiber_shift": 0,
+    "peaks_use_affine": false,
+    "b0_threshold": 0,
+    "b0_min_signal": 0,
+    "max_iters": 1000,
+    "stat_coef": "sum",
+    "min_seg_len": 0.001,
+    "min_fiber_len": 0,
+    "max_fiber_len": 250,
+    "vf_THR": 0.1,
+    "blur_spacing": 0.25,
+    "blur_core_extent": 0,
+    "blur_gauss_extent": 0,
+    "blur_gauss_min": 0.1,
+    "flip_peaks": "false false false"
 }
 ```
 

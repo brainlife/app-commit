@@ -10,6 +10,6 @@ results_dir=${commit_dir}/Results_${model}
 
 [ ! -d errors ] && mkdir -p errors && cp ${results_dir}/fit_* ./errors/
 
-[ ! -d streamline_weights ] && mkdir -p streamline_weights && cp ${results_dir}/streamline_weights.txt ./streamlines_weights/weights.csv
+[ ! -d streamline_weights ] && mkdir -p streamline_weights && cp ${results_dir}/streamline_weights.txt ./streamline_weights/weights.csv
 
 [ ! -d tdi ] && mkdir -p tdi && cp ${commit_dir}/dictionary_tdi.nii.gz ./tdi/tdi.nii.gz
