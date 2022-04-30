@@ -6,7 +6,12 @@
 set -e
 set -x
 
+[ -z "$FREESURFER_LICENSE" ] && echo "Please set FREESURFER_LICENSE in .bashrc" && exit 1;
+echo $FREESURFER_LICENSE > license.txt
+
 [ ! -f peaks.nii.gz ] && time singularity exec -e docker://brainlife/mrtrix3:3.0_RC3 ./fod_to_peaks.sh
+
+time singularity exec -e -B `pwd`/license.txt:/usr/local/freesurfer/license.txt docker://brainlife/freesurfer:6.0.0 ./reslice_wm.sh
 
 [ ! -d COMMIT ] && time singularity exec -e docker://brainlife/commit:1.6.1 ./run_commit.py
 
