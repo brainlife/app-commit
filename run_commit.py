@@ -5,7 +5,7 @@ import commit
 from commit import trk2dictionary
 import json
 
-def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_paths,dPar,dPerp,dIso,model):
+def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model):
 
     # create dictionary
     trk2dictionary.run(
