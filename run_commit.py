@@ -57,7 +57,7 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar
     mit.fit(tol_fun=1e-3,max_iter=max_iters)
 
     # save results
-    mit.save_results(coeffs_format='%',stat_coeffs=stat_coef)
+    mit.save_results(coeffs_format='%1.8f',stat_coeffs=stat_coef)
 
 def main():
 
