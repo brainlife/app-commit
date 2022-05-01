@@ -8,7 +8,7 @@ import json
 
 
 
-def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model,fiber_shift,peaks_use_affine,b0_thr,b0_min_signal,max_iters,lmax,min_seg_len,min_fiber_len,max_fiber_len,vf_THR,flip_peaks,blur_spacing,blur_core_extent,blur_gauss_extent,blur_gauss_min):
+def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model,fiber_shift,peaks_use_affine,b0_thr,b0_min_signal,max_iters,stat_coef,lmax,min_seg_len,min_fiber_len,max_fiber_len,vf_THR,flip_peaks,blur_spacing,blur_core_extent,blur_gauss_extent,blur_gauss_min):
 
     commit.setup(lmax=lmax)
 
@@ -57,7 +57,7 @@ def run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar
     mit.fit(tol_fun=1e-3,max_iter=max_iters)
 
     # save results
-    mit.save_results(stat_coef=stat_coef)
+    mit.save_results(stat_coeffs=stat_coef)
 
 def main():
 
@@ -102,7 +102,7 @@ def main():
     blur_gauss_min = config['blur_gauss_min'] # default 0.1
 
     # run commit
-    run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model,fiber_shift,peaks_use_affine,b0_thr,b0_min_signal,max_iters,lmax,min_seg_len,min_fiber_len,max_fiber_len,vf_THR,flip_peaks,blur_spacing,blur_core_extent,blur_gauss_extent,blur_gauss_min)
+    run_commit(track_path,wm_path,peaks_path,dwi_path,bvals_path,bvecs_path,dPar,dPerp,dIso,model,fiber_shift,peaks_use_affine,b0_thr,b0_min_signal,max_iters,stat_coef,lmax,min_seg_len,min_fiber_len,max_fiber_len,vf_THR,flip_peaks,blur_spacing,blur_core_extent,blur_gauss_extent,blur_gauss_min)
 
 if __name__ == '__main__':
     main()
