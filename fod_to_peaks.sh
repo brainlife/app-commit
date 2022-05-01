@@ -12,13 +12,18 @@ lmax12=`jq -r '.lmax12' config.json`
 lmax14=`jq -r '.lmax14' config.json`
 lmax=`jq -r '.lmax' config.json`
 mask=`jq -r '.mask' config.json`
+peaks=`jq -r '.peaks' config.json`
 ncores=8
 
-# set the fod to the proper lmax image
-fod=$(eval "echo \$lmax${lmax}")
-
 # generate peaks if not already there
-[ ! -f peaks.nii.gz ] && sh2peaks ${fod} ./peaks.nii.gz -force -nthreads ${ncores} -quiet
+if [ -f ${peaks} ]; then
+  cp ${peaks} ./peaks.nii.gz
+else
+  # set the fod to the proper lmax image
+  fod=$(eval "echo \$lmax${lmax}")
+
+  [ ! -f peaks.nii.gz ] && sh2peaks ${fod} ./peaks.nii.gz -force -nthreads ${ncores} -quiet
+fi
 
 # generate white matter binary mask from 5tt image
 [ ! -f wm.nii.gz ] && mrconvert -coord 3 2 ${mask} wm_prob.nii.gz -force -nthreads ${ncores} && fslmaths wm_prob.nii.gz -bin ./wm.nii.gz
