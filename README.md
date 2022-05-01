@@ -78,7 +78,8 @@ You can submit this App online at [https://doi.org/10.25663/brainlife.app.622](h
     "blur_core_extent": 0,
     "blur_gauss_extent": 0,
     "blur_gauss_min": 0.1,
-    "flip_peaks": "false false false"
+    "flip_peaks": "false false false",
+    "peaks":  "/input/peaks/peaks.nii.gz"
 }
 ```
 
