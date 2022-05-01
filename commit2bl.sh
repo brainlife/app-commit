@@ -13,3 +13,5 @@ results_dir=${commit_dir}/Results_${model}
 [ ! -d streamline_weights ] && mkdir -p streamline_weights && cp ${results_dir}/streamline_weights.txt ./streamline_weights/weights.csv
 
 [ ! -d tdi ] && mkdir -p tdi && cp ${commit_dir}/dictionary_tdi.nii.gz ./tdi/tdi.nii.gz
+
+[ ! -d peaks ] && mkdir -p peaks && cp ./peaks.nii.gz ./peaks/
