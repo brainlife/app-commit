@@ -10,9 +10,9 @@
   <a href="https://github.com/brainlife/app-commit/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
 </p>
 
-> 📍 **This branch, `v1.0`, is the brainlife.io App Compute streamline weights using COMMIT** ([doi:10.25663/brainlife.app.622](https://doi.org/10.25663/brainlife.app.622)).
+> **This branch, `v1.0`, is the brainlife.io App Compute streamline weights using COMMIT** ([doi:10.25663/brainlife.app.622](https://doi.org/10.25663/brainlife.app.622)).
 
-## 🧠 At a glance
+## At a glance
 
 <!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
@@ -22,14 +22,14 @@ Derives peaks from the CSD (sh2peaks) unless peaks are given, builds a white-mat
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/track/tck` · `neuro/dwi` · `neuro/csd` · `neuro/mask` · `neuro/peaks` (optional) |
-| 📤 **Outputs** | `neuro/streamline-weights` · `raw` ×3 · `neuro/noddi` · `neuro/peaks` |
-| 🐳 **Container** | `brainlife/mrtrix3:3.0_RC3` |
-| ⚙️ **Resources** | 8 CPUs · 40 GB memory · 3 h walltime |
-| 🔑 **Requires** | `FREESURFER_LICENSE` |
-| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.622](https://doi.org/10.25663/brainlife.app.622) |
+| **Inputs** | `neuro/track/tck` · `neuro/dwi` · `neuro/csd` · `neuro/mask` · `neuro/peaks` (optional) |
+| **Outputs** | `neuro/streamline-weights` · `raw` ×3 · `neuro/noddi` · `neuro/peaks` |
+| **Container** | `brainlife/mrtrix3:3.0_RC3` |
+| **Resources** | 8 CPUs · 40 GB memory · 3 h walltime |
+| **Requires** | `FREESURFER_LICENSE` |
+| **Run it** | [doi.org/10.25663/brainlife.app.622](https://doi.org/10.25663/brainlife.app.622) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
@@ -39,7 +39,7 @@ Derives peaks from the CSD (sh2peaks) unless peaks are given, builds a white-mat
 | `mask` | `neuro/mask` (5tt_masks) | yes | 5-tissue-type image; its white-matter volume is binarised as the COMMIT mask. |
 | `peaks` | `neuro/peaks` | no | Optional precomputed peaks; used instead of deriving peaks from the CSD. |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
@@ -51,7 +51,7 @@ Derives peaks from the CSD (sh2peaks) unless peaks are given, builds a white-mat
 | `peaks` | `neuro/peaks` | Peaks image used for the fit. |
 
 <details>
-<summary><b>⚙️ Parameters</b> (20)</summary>
+<summary><b>Parameters</b> (20)</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -80,13 +80,13 @@ Derives peaks from the CSD (sh2peaks) unless peaks are given, builds a white-mat
 
 <!-- brainlife-app:end -->
 
-## 🚀 Running the App
+## Running the App
 
-### ☁️ On brainlife.io
+### On brainlife.io
 
 Open the App at [doi.org/10.25663/brainlife.app.622](https://doi.org/10.25663/brainlife.app.622), choose a whole-brain tractogram (`neuro/track/tck`), a `neuro/dwi`, a `neuro/csd` and a 5-tissue-type `neuro/mask` (and, optionally, precomputed `neuro/peaks`) from your project, set the options and press **Execute**. All inputs must be in the same space. The App archives a `neuro/streamline-weights` dataset, a `neuro/noddi` dataset with the COMMIT compartment maps, the peaks used for the fit, and three `raw` datasets (dictionaries, fit errors and the tract density image).
 
-### 💻 Locally
+### Locally
 
 You need [Singularity/Apptainer](https://apptainer.org/), [`jq`](https://jqlang.github.io/jq/) and a [FreeSurfer license](https://surfer.nmr.mgh.harvard.edu/registration.html) (FreeSurfer 6.0.0 reslices the white-matter mask onto the peaks grid). The App pulls the `brainlife/mrtrix3`, `brainlife/freesurfer:6.0.0` and `brainlife/commit:1.6.1` containers.
 
@@ -140,7 +140,7 @@ You need [Singularity/Apptainer](https://apptainer.org/), [`jq`](https://jqlang.
    ./main
    ```
 
-### 🧪 Sample data
+### Sample data
 
 Download sample datasets from brainlife.io with the [brainlife CLI](https://github.com/brainlife/cli):
 
@@ -151,7 +151,7 @@ mkdir input
 bl dataset download <dataset-id>
 ```
 
-## 📦 Outputs
+## Outputs
 
 ```text
 streamline_weights/weights.csv   COMMIT weight of each streamline
@@ -167,12 +167,12 @@ peaks/peaks.nii.gz               peaks image used for the fit
 
 The `noddi-commit` dataset is not a NODDI fit; it reuses the `neuro/noddi` datatype until a dedicated datatype exists, and `tdi` and the other `raw` outputs are likewise temporary.
 
-## 🩺 Troubleshooting
+## Troubleshooting
 
 - **`Please set FREESURFER_LICENSE in .bashrc`**: export your FreeSurfer license text in the `FREESURFER_LICENSE` environment variable before running `./main`.
 - **Inputs in different spaces**: the tractogram, DWI, CSD and 5TT mask must share the same space; the white-matter mask is resliced onto the peaks grid by header only.
 
-## 📚 Citing
+## Citing
 
 > [!TIP]
 > If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
@@ -185,14 +185,14 @@ The `noddi-commit` dataset is not a NODDI fit; it reuses the `neuro/noddi` datat
 - Daducci et al. Accelerated Microstructure Imaging via Convex Optimization (AMICO) from diffusion MRI data. *NeuroImage* 105:32-44 (2015). [doi:10.1016/j.neuroimage.2014.10.026](https://doi.org/10.1016/j.neuroimage.2014.10.026)
 - Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
 
-## 👥 Authors
+## Authors
 
 - Brad Caron
 - Franco Pestilli (project director)
 
 **Contributors:** Soichi Hayashi
 
-## 💰 Funding
+## Funding
 
 [![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
 [![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
@@ -211,6 +211,6 @@ The `noddi-commit` dataset is not a NODDI fit; it reuses the `neuro/noddi` datat
 
 <sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
 
-## ⚖️ License
+## License
 
 [MIT](https://github.com/brainlife/app-commit/blob/master/LICENSE). COMMIT, AMICO, MRtrix3 and FreeSurfer are distributed under their own licenses.
